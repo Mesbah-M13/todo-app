@@ -8,7 +8,7 @@ import store from "./redux/store";
 function App() {
     return (
         <Provider store={store}>
-            <div className="grid place-items-center bg-blue-100 h-screen px-6 font-sans">
+            <div className="grid place-items-center bg-blue-100 h-screen px-6 font-sans mt-9 pt-5">
                 <Navbar />
 
                 <div className="w-full max-w-3xl shadow-lg rounded-lg p-6 bg-white">
@@ -16,11 +16,21 @@ function App() {
 
                     <hr className="mt-4" />
 
-                    <TodoList />
+                    <TodoList completed={false}/>
 
                     <hr className="mt-4" />
 
                     <Footer />
+                </div>
+
+                <div className="w-full max-w-3xl shadow-lg rounded-lg p-6 bg-white my-5">
+                    <span>Completed Tasks</span>
+
+                    <hr className="mt-4" />
+
+                    <TodoList completed/>
+
+                    <hr className="mt-4" />
                 </div>
             </div>
         </Provider>

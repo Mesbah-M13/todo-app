@@ -1,11 +1,11 @@
-import { toggled } from "../actions";
+import { editTitle } from "../actions";
 
-const updateStatus = (todoId, currentStatus) => {
+const updateTitle = (todoId, text) => {
     return async (dispatch) => {
         const response = await fetch(`https://json-api-fake-server-new.herokuapp.com/todos/${todoId}`, {
-            method: "PATCH",
+            method: "PUT",
             body: JSON.stringify({
-                completed: !currentStatus,
+                text: text,
             }),
             headers: {
                 "Content-type": "application/json; charset=UTF-8",
@@ -13,8 +13,8 @@ const updateStatus = (todoId, currentStatus) => {
         });
         const todo = await response.json();
 
-        dispatch(toggled(todo.id));
+        dispatch(editTitle(todo.text));
     };
 };
 
-export default updateStatus;
+export default updateTitle;
