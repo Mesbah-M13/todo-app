@@ -2,7 +2,7 @@ import { added } from "../actions";
 
 const addTodo = (todoText) => {
     return async (dispatch) => {
-        const response = await fetch("https://json-api-fake-server-new.herokuapp.com/todos", {
+        const response = await fetch("https://enchanting-bison.cyclic.app/todos", {
             method: "POST",
             body: JSON.stringify({
                 text: todoText,
